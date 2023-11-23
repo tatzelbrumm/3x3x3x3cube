@@ -1,8 +1,8 @@
 #include <Adafruit_NeoPixel.h>
 
 int leds= 27;
-// create a pixel strand with 2 pixels on pin 0, color sequence RGB
-Adafruit_NeoPixel pixels(leds, 0, NEO_RGB);
+// create a pixel strand with 2 pixels on pin 0, color sequence GRB
+Adafruit_NeoPixel pixels(leds, 0, NEO_GRB);
 unsigned long colors[3];
 byte permutations[6][3]=
 {
