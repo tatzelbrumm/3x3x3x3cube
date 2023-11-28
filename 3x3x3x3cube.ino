@@ -20,7 +20,7 @@ byte perm;
 
 void setup() 
 {
-  unsigned long brightness= 0x10;
+  unsigned long brightness= 0x8;
   for (int c=0; c<3; c++)
   {
     colors[c]= brightness << (8 * (2-c));
