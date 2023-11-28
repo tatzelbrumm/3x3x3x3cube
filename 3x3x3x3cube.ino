@@ -14,9 +14,9 @@ Adafruit_NeoPixel pixels(leds, 3, NEO_GRB);
 unsigned long colors[3];
 byte sequence[leds]=
 {
-  13,  4,  3,  0,  1,  2,  5,  8,  7, 
-   6, 15, 12,  9, 10, 11, 14, 17, 16, 
-  21, 18, 19, 20, 23, 26, 25, 24, 22
+  13,  4, 22, 12, 14, 10, 16,  9, 15, 
+  11, 17,  3,  5, 21, 23,  1,  7, 19,
+  25,  0,  6,  2,  8, 24, 18, 26, 20
 };
 
 const byte permutations[6][3]=
