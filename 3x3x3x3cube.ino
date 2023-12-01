@@ -1,6 +1,6 @@
 #include <Adafruit_NeoPixel.h>
 
-#define ADR(x,y,z) ((x)+(y*3)+(z*9))
+#define ADR(x,y,z) ((x)+(y)*3+(z)*9)
 
 const int leds= 27;
 // create a pixel strand with 2 pixels on pin 3, color sequence GRB
