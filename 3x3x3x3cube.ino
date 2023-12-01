@@ -14,9 +14,15 @@ Adafruit_NeoPixel pixels(leds, 3, NEO_GRB);
 unsigned long colors[3];
 byte sequence[leds]=
 {
-  13,  4, 22, 12, 14, 10, 16,  9, 15, 
-  17, 11,  3,  5, 21, 23,  1,  7, 19,
-  25,  0,  6,  8,  2, 20, 26, 24, 18
+  ADR(1,1,1), 
+  ADR(1,1,0), ADR(1,1,2), 
+  ADR(0,1,1), ADR(2,1,1), 
+  ADR(1,0,1), ADR(1,2,1),  
+  ADR(0,0,1), ADR(0,2,1), ADR(2,2,1), ADR(2,0,1),  
+  ADR(0,1,0), ADR(2,1,0), ADR(2,1,2), ADR(0,1,2),
+  ADR(1,2,0), ADR(1,0,0), ADR(1,0,2), ADR(1,2,2),
+  ADR(0,0,0), ADR(0,2,0), ADR(2,2,0), ADR(2,0,0),
+  ADR(2,0,2), ADR(2,2,2), ADR(0,2,2), ADR(0,0,2)
 };
 
 const byte permutations[6][3]=
@@ -47,7 +53,7 @@ void loop()
     color |= colors[permutations[perm][c]];
     for (int p=0; p<leds; p++)
     {
-      pixels.setPixelColor(cube[sequence[p]], color);
+      pixels.setPixelColor(sequence[p], color);
       delay(500);
       pixels.show();
     }
