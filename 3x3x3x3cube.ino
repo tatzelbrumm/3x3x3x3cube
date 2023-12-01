@@ -26,17 +26,18 @@ void setup()
 
 void loop() 
 {
+  int x[3];
   unsigned long color= 0;
   pixels.clear();
   pixels.show();
   for (int c=0; c<3; c++)
   {
     color |= colors[permutations[perm][c]];
-    for (int x=0; x<3; x++)
-      for (int y=0; y<3; y++)
-        for (int z=0; z<3; z++)
+    for (x[2]=0; x[2]<3; x[2]++)
+      for (x[1]=0; x[1]<3; x[1]++)
+        for (x[0]=0; x[0]<3; x[0]++)
         {
-          pixels.setPixelColor(ADR(x,y,z), color);
+          pixels.setPixelColor(ADR(x[permutations[perm][0]],x[permutations[perm][1]],x[permutations[perm][2]]), color);
           delay(500);
           pixels.show();
         }
