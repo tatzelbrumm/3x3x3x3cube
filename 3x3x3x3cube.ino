@@ -1,9 +1,15 @@
 #include <Adafruit_NeoPixel.h>
 
-#define ADR(x,y,z) ((x)+(y)*3+(z)*9)
-
 const int leds= 27;
-// create a pixel strand with 2 pixels on pin 3, color sequence GRB
+const byte cube[leds]=
+{
+   0, 1, 2, 5, 4, 3, 6, 7, 8,
+  17,12,11,16,13,10,15,14, 9,
+  18,19,20,23,22,21,24,25,26
+};
+#define ADR(x,y,z) cube[(x)+(y)*3+(z)*9]
+
+// create a pixel strand with 27 pixels on pin 3, color sequence GRB
 Adafruit_NeoPixel pixels(leds, 3, NEO_GRB);
 unsigned long colors[3];
 byte permutations[6][3]=
