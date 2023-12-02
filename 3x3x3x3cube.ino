@@ -9,7 +9,7 @@ const byte cube[leds]=
 };
 #define ADR(x,y,z) cube[(x)+(y)*3+(z)*9]
 
-const unsigned long brightness= 0x10;
+const unsigned long brightness= 0x30;
 
 // create a pixel strand with 27 pixels on pin 3, color sequence GRB
 Adafruit_NeoPixel pixels(leds, 3, NEO_GRB);
