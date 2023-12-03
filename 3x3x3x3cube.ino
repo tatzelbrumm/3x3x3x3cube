@@ -9,10 +9,10 @@ const byte cube[leds]=
 };
 #define ADR(x,y,z) cube[(x)+(y)*3+(z)*9]
 
-const unsigned long brightness= 0x30;
+const unsigned long brightness= 0x80;
 
-// create a pixel strand with 27 pixels on pin 3, color sequence GRB
-Adafruit_NeoPixel pixels(leds, 3, NEO_GRB);
+// create a pixel strand with 27 pixels on pin 0, color sequence GRB
+Adafruit_NeoPixel pixels(leds, 0, NEO_GRB);
 unsigned long colors[3];
 const byte sequence[leds]=
 {
