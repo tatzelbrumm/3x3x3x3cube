@@ -57,19 +57,19 @@ void countup()
   perm= ++perm % 6;
 }
 
-void sweden()
+void denmark()
 {
-  const unsigned long blue= (brightness*107/256)<<8 | (brightness*167/256);
-  const unsigned long yellow= (brightness*254/256)<<16 | (brightness*204/256)<<8 | (brightness*2/256);
+  const unsigned long red= (brightness*255/256)<<16 | (brightness*0/256)<<8 | (brightness*0/256);
+  const unsigned long white= (brightness*255/256)<<16 | (brightness*255/256)<<8 | (brightness*255/256);
   for (int p=0; p<leds; p++)
   {
-    pixels.setPixelColor(sequence[p], blue);
+    pixels.setPixelColor(sequence[p], red);
     delay(500);
     pixels.show();
   }
   for (int p=0; p<nx; p++)
   {
-    pixels.setPixelColor(cross[p], yellow);
+    pixels.setPixelColor(cross[p], white);
     delay(500);
     pixels.show();
   }
@@ -87,10 +87,10 @@ void setup()
 
 void loop() 
 {
-  countup();
-  delay(1000);
-//pixels.clear();
-//pixels.show();
-  sweden();
+//countup();
+//delay(1000);
+  pixels.clear();
+  pixels.show();
+  denmark();
   delay(2000);
 }
