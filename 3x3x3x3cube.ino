@@ -7,6 +7,7 @@ const int leds= 27;
 // create a pixel strand with 27 pixels on pin A3, color sequence RGB
 Adafruit_NeoPixel pixels(leds, 3, NEO_RGB);
 unsigned long colors[3];
+unsigned long white;
 const byte sequence[leds]=
 {
   ADR(1,1,1),
@@ -56,16 +57,15 @@ void countup()
   }
 }
 
-void lightup()
+void lightdown()
 {
-  pixels.clear();
   pixels.show();
-  for (int p=0; p<leds; p++)
+  for (int p=leds-1; p>=0; p--)
   {
-    unsigned long color= 0;
+    unsigned long color= white;
     for (int c=0; c<3; c++)
     {
-      color |= colors[permutations[perm][c]];
+      color &= 0xFFFFFF ^ (0xFF << (8 * permutations[perm][c]));
       pixels.setPixelColor(sequence[p], color);
       delay(500);
       pixels.show();
@@ -89,6 +89,9 @@ void sweden()
     delay(500);
     pixels.show();
   }
+  pixels.setPixelColor(cross[0], white);
+  delay(500);
+  pixels.show();
 }
 
 void setup() 
@@ -97,19 +100,24 @@ void setup()
   {
     colors[c]= brightness << (8 * (2-c));
   }
+  white= 0;
+  for (int c=0; c<3; c++)
+  {
+    white |= colors[c];
+  }
   pixels.begin();  // initialize the pixels
   perm= 0;
 }
 
 void loop() 
 {
-  lightup();
-  delay(1000);
   countup();
   delay(1000);
+  lightdown();
+//delay(1000);
 //pixels.clear();
 //pixels.show();
   sweden();
-  delay(2000);
+  delay(1000);
   perm= ++perm % 6;
 }
