@@ -2,10 +2,10 @@
 
 #define ADR(x,y,z) ((x)+(y*3)+(z*9))
 
-const unsigned long brightness= 0x8;
+const unsigned long brightness= 0x30;
 const int leds= 27;
 // create a pixel strand with 27 pixels on pin A3, color sequence RGB
-Adafruit_NeoPixel pixels(leds, 3, NEO_RGB);
+Adafruit_NeoPixel pixels(leds, 3, NEO_GRB);
 unsigned long colors[3];
 unsigned long white;
 const byte sequence[leds]=
@@ -118,6 +118,6 @@ void loop()
 //pixels.clear();
 //pixels.show();
   sweden();
-  delay(1000);
+  delay(2000);
   perm= ++perm % 6;
 }
