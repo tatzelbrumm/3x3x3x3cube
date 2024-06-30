@@ -54,7 +54,23 @@ void countup()
       pixels.show();
     }
   }
-  perm= ++perm % 6;
+}
+
+void lightup()
+{
+  pixels.clear();
+  pixels.show();
+  for (int p=0; p<leds; p++)
+  {
+    unsigned long color= 0;
+    for (int c=0; c<3; c++)
+    {
+      color |= colors[permutations[perm][c]];
+      pixels.setPixelColor(sequence[p], color);
+      delay(500);
+      pixels.show();
+    }
+  }
 }
 
 void sweden()
@@ -87,10 +103,13 @@ void setup()
 
 void loop() 
 {
+  lightup();
+  delay(1000);
   countup();
   delay(1000);
 //pixels.clear();
 //pixels.show();
   sweden();
   delay(2000);
+  perm= ++perm % 6;
 }
